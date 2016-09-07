@@ -11,15 +11,13 @@ h1 { font-size: $fs-h1; }
 
 h2 {
   font-size: $fs-h2;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 h3 {
   font-size: $fs-h3;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  border-bottom: $border-width solid $gray-lighter;
+  font-weight: 600;
 }
 
 h4 { font-size: $fs-h4; }
@@ -56,7 +54,8 @@ ul ol {
   margin-bottom: 0;
 }
 
-a {
+a,
+.link {
   color: $link-color;
   text-decoration: $link-decoration;
 

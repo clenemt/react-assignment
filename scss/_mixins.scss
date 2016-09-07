@@ -70,6 +70,7 @@
   @each $breakpoint, $container-width in $max-widths {
     @include mq-up($breakpoint) {
       max-width: $container-width;
+      padding: 0;
     }
   }
 }

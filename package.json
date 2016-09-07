@@ -5,12 +5,12 @@
   "scripts": {
     "build": "run-p build:*",
     "build:css": "node-sass --output-style compressed -o dist/css/ scss/main.scss",
-    "build:js": "babel js -d dist/js",
+    "build:js": "babel js --ignore vendor -d dist/js",
     "watch": "run-p watch:*",
     "watch:css": "watch-run -p scss/** \"npm run build:css\"",
     "watch:js": "watch-run -p js/** \"npm run build:js\"",
     "sync": "browser-sync start -s -f dist index.html --reload-delay 500 --no-ui --no-notify",
-    "test": "eslint js/**"
+    "test": "eslint js/** --ignore-pattern vendor"
   },
   "devDependencies": {
     "watch-run": "latest",

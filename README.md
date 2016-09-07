@@ -3,7 +3,7 @@
 A sample react assignment. Feel free to fork, copy and modify as needed.
 
 # Example
-See https://clenemt.github.io/account-assignment/ for a look at the code live. :rocket:
+See https://clenemt.github.io/react-assignment/ for a look at the code live. :rocket:
 
 # How to
 To run the sample locally, do the following:

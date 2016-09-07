@@ -1,37 +1,28 @@
 // COLORS - INDEX ====================================
 
 $gray-darker:               #212121;
-$gray-dark:                 #333;
-$gray:                      #55595c;
-$gray-light:                #818a91;
+$gray-dark:                 #2E3836;
+$gray:                      #545454;
+$gray-light:                #878787;
 $gray-lighter:              #ddd;
-$gray-lightest:             #eceeef;
+$gray-lightest:             #f4f6f6;
+$gray-lightest-alt:         #fcfcfc;
 
-$purple:                    #741474;
-$light-purple:              lighten($purple, 45%);
-$dark-purple:               darken($purple, 10%);
+$red:                       #f65555;
+$red-light:                 lighten($red, 45%);
+$red-dark:                  darken($red, 10%);
 
-$orange:                    #f38420;
-$light-orange:              lighten($orange, 45%);
-$dark-orange:               darken($orange, 10%);
-
-$red:                       #ce2027;
-$light-red:                 lighten($red, 45%);
-$dark-red:                  darken($red, 10%);
-
-$blue:                      #0b88bb;
-$light-blue:                lighten($blue, 45%);
-$dark-blue:                 darken($blue, 5%);
-
-$green:                     #5cb85c;
+$green:                     #2cceab;
+$green-light:               lighten($green, 20%);
+$green-dark:                darken($green, 5%);
 
 // GLOBALS  ====================================
 
 $body-bg:                   #fff;
 $body-color:                $gray-dark;
 
-$link-color:                $purple;
-$link-hover-color:          darken($dark-purple, 10%);
+$link-color:                $green;
+$link-hover-color:          $green-dark;
 $link-decoration:           none;
 $link-hover-decoration:     underline;
 
@@ -44,10 +35,16 @@ $spacer4:                   $spacer * 3;
 
 $border-width:              1px;
 $border-radius:             .2rem;
+$border-radius-lg:          .3rem;
+
+$zi-navbar:                  1000;
+$zi-dropdown:                1000;
+$zi-dialog-overlay:          1010;
+$zi-dialog:                  1020;
 
 // FONTS  ====================================
 
-$ff:                        'Open Sans', sans-serif;
+$ff:                        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 $ff-monospace:              Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
 $lh:                        1.5;
@@ -78,11 +75,13 @@ $mq-breakpoints: (
   xs: 0,
   sm: 480px,
   md: 768px,
-  lg: 1024px
+  lg: 992px,
+  xl: 1200px
 );
 
 $container-widths: (
-  sm: 620px,
-  md: 748px
+  md: 720px,
+  lg: 940px,
+  xl: 1140px
 );
 

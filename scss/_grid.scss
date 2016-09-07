@@ -45,7 +45,7 @@
 
 // RESPONSIVE ====================================
 
-@include mq-down (md) {
+@include mq-down (sm) {
   .grid:not(.no-stacking-on-mobiles) > .unit {
     width: 50% !important;
   }

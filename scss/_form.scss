@@ -1,14 +1,9 @@
-label {
-  display: block;
-  font-weight: bold;
-}
-
 .form-control {
   display: block;
   width: 100%;
   padding: $spacer0 .75rem;
   font-size: $fs;
-  line-height: 1.5;
+  line-height: 1.25;
   background-color: #fff;
   background-image: none;
   background-clip: padding-box;
@@ -19,8 +14,8 @@ label {
 
   &:focus {
     background-color: #fff;
-    border-color: $gray-light;
     outline: none;
+    border-color: $green;
   }
 
   // Unstyle the caret on `<select>`s in IE10+.
@@ -31,7 +26,6 @@ label {
 
   &::placeholder {
     color: $gray-light;
-    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
     opacity: 1;
   }
 }
@@ -61,6 +55,11 @@ label {
   .form-feedback {
     color: $green;
   }
+}
+
+.form-hidden {
+  position: absolute;
+  left: -9999px;
 }
 
 .has-error {
