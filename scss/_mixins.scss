@@ -1,0 +1,75 @@
+@mixin clearfix () {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// MEDIA QUERIES ====================================
+
+// MQ - HELPERS ------------------
+@function breakpoint-next ($name, $breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+@function breakpoint-min ($name, $breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@function breakpoint-max ($name, $breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+}
+
+// MQ - EXPOSED ------------------
+@mixin mq-up ($name, $breakpoints: $mq-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin mq-down ($name, $breakpoints: $mq-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin mq-only ($name, $breakpoints: $mq-breakpoints) {
+  @include mq-up ($name, $breakpoints) {
+    @include mq-down ($name, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+// Makes the @content apply between the min and max breakpoints
+@mixin mq-between ($lower, $upper, $breakpoints: $mq-breakpoints) {
+  @include mq-up ($lower, $breakpoints) {
+    @include mq-down ($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+// GRID ====================================
+
+@mixin make-container ($max-widths: $container-widths) {
+  @each $breakpoint, $container-width in $max-widths {
+    @include mq-up($breakpoint) {
+      max-width: $container-width;
+    }
+  }
+}

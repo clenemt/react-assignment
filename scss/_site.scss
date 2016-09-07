@@ -1,0 +1,187 @@
+// HEADER ====================================
+
+.page-header {
+  background: $purple;
+  color: #fff;
+  line-height: 5rem;
+
+  h1 {
+    line-height: inherit;
+    margin-bottom: 0;
+  }
+}
+
+// Responsive header
+@include mq-up(md) {
+  .page-header {
+    line-height: 9rem;
+  }
+}
+
+
+// NAVS ====================================
+
+.nav {
+  line-height: 3.5rem;
+  text-align: right;
+  margin-bottom: 4px;
+}
+
+.page-nav {
+  background: $gray-lightest;
+  padding-top: $spacer;
+
+  li {
+    display: inline-block;
+    margin-bottom: $spacer;
+    margin-right: $spacer;
+  }
+
+  a.active,
+  a.active:hover,
+  a.active:active {
+    color: $purple;
+    font-weight: bold;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+// FOOTER ====================================
+
+.footer {
+  background: $gray-darker;
+
+  &,
+  a,
+  a:hover,
+  a:active,
+  a:focus {
+    color: $gray-lightest;
+  }
+
+  .header {
+    font-weight: bold;
+    font-size: $fs;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    font-size: inherit;
+  }
+}
+
+.footer-social,
+.footer-nav,
+.footer-powered {
+  font-size: 13px;
+}
+
+.footer-nav {
+  padding: $spacer 0 $spacer0;
+  border-bottom: $border-width solid $gray-light;
+  li { line-height: 1.5rem; }
+}
+
+.footer-social {
+  padding: $spacer 0 .25rem;
+}
+
+.footer-powered {
+  padding: $spacer0 0;
+}
+
+// Responsive footer
+@include mq-up(md) {
+  .footer-nav {
+    padding: $spacer1 0 $spacer2;
+  }
+
+  .footer-nav li {
+    line-height: 2.5rem;
+  }
+
+  .footer-social {
+    padding: $spacer2 0 $spacer1;
+  }
+}
+
+// CONTENT ====================================
+
+.content {
+  margin-bottom: 5rem;
+}
+
+.profile-image-thumb {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  margin-left: $spacer0;
+}
+
+.email {
+  font-weight: bold;
+
+  + a {
+    float: right;
+  }
+}
+
+.social-links {
+  margin-top: -$spacer0;
+
+  li {
+    line-height: 2.5rem;
+  }
+
+  img {
+    margin-right: $spacer0;
+  }
+}
+
+.styled-link {
+  color: $blue;
+
+  &:hover,
+  &:active {
+    color: $dark-blue;
+  }
+}
+
+.form {
+  @include clearfix();
+
+  .btn {
+    float: right
+  }
+
+  .day,
+  .month,
+  .year {
+    float: left;
+  }
+
+  .day {
+    width: 20%;
+    padding-right: $spacer0;
+  }
+
+  .month {
+    width: 50%;
+    padding-right: $spacer0;
+  }
+
+  .year {
+    width: 30%;
+  }
+}
+
+// GLOBALS ====================================
+
+ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}

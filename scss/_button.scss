@@ -1,0 +1,81 @@
+.btn {
+  display: inline-block;
+  padding: $spacer0 $spacer;
+  font-size: $fs;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: $border-width solid transparent;
+  border-radius: $border-radius;
+  transition: all 0.15s ease-out 0s;
+
+  &:active {
+    background-image: none;
+    outline: 0;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+// VARIATIONS ====================================
+
+.btn-primary {
+  color: #fff;
+  background-color: $orange;
+  border-color: $orange;
+
+  &:hover {
+    background-color: $dark-orange;
+    border-color: darken($dark-orange, 5%);
+  }
+
+  &:active {
+    background-color: darken($dark-orange, 5%);
+    border-color: darken($dark-orange, 5%);
+  }
+}
+
+.btn-outline-primary {
+  color: $purple;
+  background-image: none;
+  background-color: transparent;
+  border-color: $purple;
+
+  &:hover,
+  &:active {
+    color: #fff;
+    background-color: $purple;
+    border-color: $purple;
+  }
+
+  &:hover:active {
+    color: #fff;
+    background-color: $dark-purple;
+    border-color: $dark-purple;
+  }
+}
+
+.btn-outline-danger {
+  color: $red;
+  background-image: none;
+  background-color: transparent;
+  border-color: $red;
+
+  &:hover,
+  &:active {
+    color: #fff;
+    background-color: $red;
+    border-color: $red;
+  }
+
+  &:hover:active {
+    color: #fff;
+    background-color: $dark-red;
+    border-color: $dark-red;
+  }
+}

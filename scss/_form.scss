@@ -1,0 +1,74 @@
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: $spacer0 .75rem;
+  font-size: $fs;
+  line-height: 1.5;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: $border-width solid $gray-lighter;
+  border-radius: $border-radius;
+  transition: all 0.15s ease-out 0s;
+  box-shadow: 0 0 5px rgba(232, 231, 229, 0.5);
+
+  &:focus {
+    background-color: #fff;
+    border-color: $gray-light;
+    outline: none;
+  }
+
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  &::placeholder {
+    color: $gray-light;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
+  }
+}
+
+.form-group {
+  margin-bottom: $spacer;
+}
+
+.form-text {
+  color: $gray-light;
+  font-size: 90%;
+  font-weight: normal;
+}
+
+// VALIDATION ====================================
+
+.form-feedback {
+  margin-top: $spacer0;
+  font-size: 90%;
+}
+
+.has-success {
+  .form-control {
+    border-color: $green;
+  }
+
+  .form-feedback {
+    color: $green;
+  }
+}
+
+.has-error {
+  .form-control {
+    border-color: $red;
+  }
+
+  .form-feedback {
+    color: $red;
+  }
+}
