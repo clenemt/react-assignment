@@ -11,11 +11,17 @@ var CustomerInfo = React.createClass({
      * In charge of displaying the customer infos.
      */
     render: function render() {
-        var date = new Date(Date.parse(this.props.orderDate)),
-            stringDate = formatDate(date);
+        var stringDate = formatDate(this.props.orderDate);
 
         /** Format passed date as `hh:mm (dd-MM-YYYY)` */
         function formatDate(date) {
+
+            // The 2 lines below are needed for ios
+            // since new Date(this.props.orderDate) fails on ios
+            // with the provided data.json date format
+            var arr = date.split(/[- :]/);
+            date = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4]);
+
             var MM = date.getMonth() + 1 + '',
                 dd = '' + date.getDate(),
                 mm = '' + date.getMinutes(),

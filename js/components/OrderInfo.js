@@ -7,7 +7,15 @@ var OrderInfo = React.createClass({ // eslint-disable-line
      * In charge of displaying the order status.
      */
     render () {
-        var assignedDate = new Date(Date.parse(this.props.assignedDate));
+        var assignedDate = parseDate(this.props.assignedDate);
+
+        function parseDate (date) {
+            // The 2 lines below are needed for ios
+            // since new Date(this.props.orderDate) fails on ios
+            // with the provided data.json date format
+            var arr = date.split(/[- :]/);
+            return new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4]);
+        }
 
         /** Format passed date as `hh:mm (dd-MM-YYYY)` */
         function formatTime (date) {
