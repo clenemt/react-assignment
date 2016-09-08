@@ -5,10 +5,17 @@
         "jasmine": true
     },
     "parserOptions": {
-        "ecmaVersion": 6
+        "ecmaVersion": 6,
+        "jsx": true
     },
-    "extends": "eslint:recommended",
+    "plugins": [
+        "react"
+    ],
+    "extends": [ "eslint:recommended", "plugin:react/recommended" ],
     "rules": {
+        // React
+        "react/react-in-jsx-scope": "off",
+
         // Possible errors
         "no-cond-assign": "off",
         "no-constant-condition": "warn",
