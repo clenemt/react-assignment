@@ -57,6 +57,7 @@
 
   .text-help {
     font-size: $fs-sm;
+    white-space: nowrap;
   }
 }
 
@@ -96,6 +97,10 @@
   padding: $spacer;
   border-bottom: $border-width solid $gray-light;
   @include clearfix();
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .product-input,
@@ -147,10 +152,6 @@
 @include mq-up (md) {
   .product {
     padding: $spacer;
-
-    &:last-child {
-      border-bottom: none;
-    }
   }
 
   .product-img,
