@@ -6,6 +6,18 @@
   display: none;
 }
 
+.bfc {
+  overflow: auto;
+}
+
+.arrow {
+  background: url('../../img/arrow-right.png') no-repeat;
+  background-size: 100%;
+  opacity: .4;
+
+  &:hover { opacity: 1; }
+}
+
 .fade {
   opacity: 0;
   transition: opacity .15s linear;

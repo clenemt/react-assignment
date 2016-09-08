@@ -1,9 +1,197 @@
-// NAVS ====================================
+// NAV ====================================
 
-// GLOBALS ====================================
+.nav {
+  background: $gray-lightest-alt;
+  padding: ($spacer * .5);
+  border-bottom: $border-width solid $gray-lighter;
+  text-align: center;
 
-ul {
-  padding-left: 0;
+  .container {
+    position: relative;
+  }
+}
+
+.nav-arrow {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  top: 1em;
+  left: $spacer;
+  transform: rotate(180deg);
+}
+
+.nav-text {
   margin-bottom: 0;
-  list-style: none;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.nav-subtext {
+  display: block;
+  font-size: 90%;
+  color: $gray;
+}
+
+.nav-btn {
+  position: absolute;
+  right: $spacer;
+  top: .3em;
+  background: $gray-dark;
+  color: #fff;
+}
+
+@include mq-up (md) {
+  .nav {
+    margin-bottom: ($spacer * 1.5);
+  }
+}
+
+// BLOCK CONTENT ====================================
+
+.block {
+  padding: $spacer;
+}
+
+.order-info {
+  background: $gray-lighter;
+
+  .text-help {
+    font-size: $fs-sm;
+  }
+}
+
+.order-status::before {
+  content: '';
+  border-radius: 10rem;
+  height: .75em;
+  width: .75em;
+  background: $gray-dark;
+  display: inline-block;
+  margin-right: ($spacer * .5);
+}
+
+.product-list {
+  padding: 0; // Reset block padding
+}
+
+@include mq-up (md) {
+  .block {
+    margin-bottom: ($spacer * 1.5);
+    border: $border-width solid $gray-light;
+    border-radius: $border-radius;
+  }
+
+  .order-info {
+    border-color: $gray-light;
+  }
+
+  .customer-info .text {
+    margin-bottom: ($spacer * .5);
+  }
+}
+
+// PRODUCT ITEM ====================================
+
+.product {
+  padding: $spacer;
+  border-bottom: $border-width solid $gray-light;
+  @include clearfix();
+}
+
+.product-input,
+.product-arrow {
+  position: relative;
+  top: 2.5rem;
+}
+
+.product-img {
+  float: left;
+  margin: 0 $spacer 0 0;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.product-desc {
+  @include clearfix();
+
+  &:hover .product-arrow {
+    opacity: 1;
+  }
+
+  &:hover .product-title {
+    text-decoration: underline;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.product-arrow {
+  float: right;
+  width: 1em;
+  height: 1em;
+  margin-left: $spacer;
+}
+
+.product-title.text {
+  font-size: $fs;
+  font-weight: 700;
+  margin: 0;
+}
+
+@include mq-up (md) {
+  .product {
+    padding: $spacer;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .product-img,
+  .product-input {
+    margin-right: $spacer;
+  }
+
+  .product-title.text {
+    font-size: $fs-md;
+  }
+}
+
+.custom-checkbox {
+  position: relative;
+  display: inline;
+  padding-left: ($spacer * 2.5);
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+}
+
+.custom-checkbox-indicator {
+  position: absolute;
+  top: ($spacer * 2.5);
+  left: 0;
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: $border-width-lg solid $yellow-dark;
+}
+
+.custom-checkbox input:checked~.custom-checkbox-indicator {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1 -1 10 10'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+    background-color: $yellow-darker;
 }

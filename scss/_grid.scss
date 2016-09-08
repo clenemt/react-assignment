@@ -1,7 +1,7 @@
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding: 0 $spacer;
+  padding: 0;
   @include make-container();
 }
 
@@ -45,9 +45,9 @@
 
 // RESPONSIVE ====================================
 
-@include mq-down (sm) {
+@include mq-down (xs) {
   .grid:not(.no-stacking-on-mobiles) > .unit {
-    width: 50% !important;
+    width: 100% !important;
   }
 
   .unit .grid .unit {

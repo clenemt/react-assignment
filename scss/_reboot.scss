@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
 }
 
 *,
@@ -65,7 +66,7 @@ textarea {
 
 label {
   display: inline-block;
-  margin-bottom: $spacer0;
+  margin-bottom: ($spacer * .5);
 }
 
 input,

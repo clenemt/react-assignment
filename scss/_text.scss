@@ -4,33 +4,7 @@ h1, h2, h3, h4, h5, h6 {
   color: inherit;
   font-weight: normal;
   margin-top: 0;
-  margin-bottom: $spacer0;
-}
-
-h1 { font-size: $fs-h1; }
-
-h2 {
-  font-size: $fs-h2;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  font-size: $fs-h3;
-  font-weight: 600;
-}
-
-h4 { font-size: $fs-h4; }
-h5 { font-size: $fs-h5; }
-h6 { font-size: $fs-h6; }
-
-@include mq-up(md) {
-  h1 { font-size: $fs-md-h1; }
-  h2 { font-size: $fs-md-h2; }
-  h3 { font-size: $fs-md-h3; }
-  h4 { font-size: $fs-md-h4; }
-  h5 { font-size: $fs-md-h5; }
-  h6 { font-size: $fs-md-h6; }
+  margin-bottom: ($spacer * .5);
 }
 
 // BODY COPY ====================================
@@ -38,6 +12,12 @@ h6 { font-size: $fs-h6; }
 p {
   margin-top: 0;
   margin-bottom: $spacer;
+}
+
+ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
 }
 
 ol,
@@ -54,8 +34,7 @@ ul ol {
   margin-bottom: 0;
 }
 
-a,
-.link {
+a {
   color: $link-color;
   text-decoration: $link-decoration;
 
@@ -63,5 +42,32 @@ a,
   &:focus {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
+  }
+}
+
+// TEXT UTILS ====================================
+
+.text-label {
+  font-weight: 700;
+}
+
+.text {
+  margin-bottom: 0;
+  font-size: $fs-sm;
+}
+
+.text-help {
+  color: $gray;
+}
+
+// Responsive text
+@include mq-up (md) {
+  .text {
+    font-size: $fs;
+    margin-bottom: ($spacer * .5);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 }

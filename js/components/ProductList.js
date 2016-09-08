@@ -1,20 +1,57 @@
-var ProductList = React.createClass({
+/* global React, ProductItem */
 
-    render() {
-        var items = this.props.products.map((prod) => {
+var ProductList = React.createClass({ // eslint-disable-line
+
+    /**
+     * The common initial state method.
+     */
+    getInitialState () {
+        return { items: this.props.products };
+    },
+
+    /**
+     * Will update our items state array if something changed.
+     * @param  {Number} id     - The item id.
+     * @param  {String} status - The new item status.
+     */
+    handleStatusChange (id, status) {
+        var items = this.state.items,
+            index;
+
+        index = items.findIndex((item) => {
+            return item.id === id;
+        });
+
+        if (index !== -1 && items[index].status !== status) {
+            items[index].status = status;
+            this.setState({ items: items });
+        }
+    },
+
+    /**
+     * The common render method.
+     * In charge of displaying a list of items.
+     */
+    render () {
+        // Loop over products to create the product items
+        var items = this.state.items.map((item) => {
             return (
                 <ProductItem
-                    name={prod.product.name}
-                    desc={prod.product.description}
-                    img={prod.product.imageUrl}
+                    item={item}
+                    key={item.id}
+                    onStatusChange={this.handleStatusChange}
                 />
             );
         });
 
         return (
-            <ul className="product-list">
+            <ul className="product-list block">
                 {items}
             </ul>
         );
+    },
+
+    propTypes: {
+        products: React.PropTypes.array
     }
 });

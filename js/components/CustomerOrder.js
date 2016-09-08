@@ -1,6 +1,12 @@
-var CustomerOrder = React.createClass({
+/* global React, NavBar, CustomerInfo, OrderInfo, ProductList */
 
-    render() {
+var CustomerOrder = React.createClass({ // eslint-disable-line
+
+    /**
+     * The common render method.
+     * This is the main react component aka the big view.
+     */
+    render () {
         var order = this.props.order,
             customer = order.customer;
 
@@ -9,20 +15,26 @@ var CustomerOrder = React.createClass({
                 <NavBar
                   title={customer.name}
                   subtitle={customer.id}
-                  action="print"
                 />
-                <CustomerInfo
-                  orderDate={order.placedAt}
-                  email={customer.email}
-                  tel={customer.phoneNumber}
-                />
-                <OrderInfo
-                  status={order.status}
-                  assignee={order.assignee.name}
-                  assignedDate={order.assignedAt}
-                />
-                <ProductList products={order.items} />
+
+                <div className="container">
+                    <CustomerInfo
+                      orderDate={order.placedAt}
+                      email={customer.email}
+                      tel={customer.phoneNumber}
+                    />
+                    <OrderInfo
+                      status={order.status}
+                      assignee={order.assignee.name}
+                      assignedDate={order.assignedAt}
+                    />
+                    <ProductList products={order.items} />
+                </div>
             </div>
         );
+    },
+
+    propTypes: {
+        order: React.PropTypes.object
     }
 });

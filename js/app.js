@@ -1,72 +1,46 @@
-/* global ReactDOM, React */
+/* global ReactDOM, React, CustomerOrder */
 
 (function () {
 
-  var data = {
-    "id":"0335c8ed-3b41-4bc0-9fc5-adbaeeba6ed2",
-    "productGroup":"7307",
-    "status":"INPROGRESS",
-    "assignee":{
-      "id":"9018418",
-      "name":"Mark"
-    },
-    "items":[
-      {
-           "id":25,
-           "sequence":1,
-           "status":"NEW",
-           "quantity":1,
-           "product":{
-              "code":"730719067100000",
-              "name":"Boltaart Bosbessen",
-              "description":"Overheerlijke Boltaart met Bosbessen uit de keuken van de Bijenkorf.",
-              "price":17.95,
-              "imageUrl":"//placehold.it/57/ffffff/000000"
-           }
-       },
-       {
-          "id":26,
-          "sequence":1,
-          "status":"NEW",
-          "quantity":1,
-          "product":{
-             "code":"730719067300000",
-             "name":"Aarbeien Boltaart",
-             "description":"Biscuitdeeg met aardbeienbavaroise, afgemaakt met aardbeiengelei en chocoladegalletjes.",
-             "price":17.95,
-             "imageUrl":"//placehold.it/57/ffffff/000000"
-          }
-      },
-      {
-         "id":27,
-         "sequence":1,
-         "status":"NEW",
-         "quantity":1,
-         "product":{
-            "code":"730719067200000",
-            "name":"Truffel Boltaart",
-            "description":"Chocolade mousse en biscuitdeeg gevuld met koffierumsaus en feuilletine, overgoten met pure chocoladegelei en gegarneerd met een krul van pure chocolade en chocoladegalletjes.",
-            "price":17.95,
-            "imageUrl":"//placehold.it/57/ffffff/000000"
-         }
-      }
-    ],
-    "assigned":true,
-    "assignedAt":"2016-05-25 10:30",
-    "orderId":"36480157_CKS_N01",
-    "customer":{
-      "id":"00005152",
-      "email":"alan.form@email.nl",
-      "name":"Alan Ford",
-      "phoneNumber":"+31123456789"
-    },
-    "placedAt":"2016-05-24 09:00",
-    "numberOfItems":3
-  };
+    /**
+     * xhr get helper
+     * @param  {String}   url - The get url.
+     * @param  {Function} fn  - The success callback.
+     */
+    var get = (url, fn) => {
+        var request = new XMLHttpRequest();
+        request.open('GET', url);
 
-  ReactDOM.render(
-    <CustomerOrder order={data} />,
-    document.querySelector('.site')
-  );
+        request.onreadystatechange = () => {
+            if (request.readyState !== 4 || request.status !== 200) return;
+            else fn(request);
+        };
+
+        request.send();
+    };
+
+  /**
+   * Render the React root component.
+   * @param  {Object} request - The xhr request.
+   */
+    var render = (request) => {
+        var res;
+
+        try {
+            res = JSON.parse(request.responseText);
+        } catch (e) {
+            throw new SyntaxError('invalid data passed');
+        }
+
+        if (res && res.data) {
+            ReactDOM.render(
+                <CustomerOrder order={res.data} />,
+                document.querySelector('.site')
+            );
+        }
+    };
+
+    // Starts the app
+    get('data/data.json', render);
 
 }());
