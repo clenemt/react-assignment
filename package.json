@@ -5,12 +5,12 @@
   "scripts": {
     "build": "run-p build:*",
     "build:css": "node-sass --output-style compressed -o dist/css/ scss/main.scss",
-    "build:js": "rollup -c rollup.config.js",
+    "build:js": "rollup -c rollup.config.js && cat lib/** dist/js/bundle.js | uglifyjs --screw-ie8 -o dist/js/bundle.js",
     "watch": "run-p watch:*",
     "watch:css": "watch-run -p scss/** \"npm run build:css\"",
     "watch:js": "watch-run -p js/** \"npm run build:js\"",
     "sync": "browser-sync start -s -f dist index.html --reload-delay 500 --no-ui --no-notify",
-    "test": "eslint js/** --ignore-pattern vendor"
+    "test": "eslint js/**"
   },
   "devDependencies": {
     "babel-cli": "latest",
@@ -23,6 +23,7 @@
     "node-sass": "latest",
     "npm-run-all": "latest",
     "rollup-plugin-babel": "^2.6.1",
+    "uglify-js": "^2.7.3",
     "watch-run": "latest"
   },
   "repository": {

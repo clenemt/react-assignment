@@ -8,9 +8,6 @@
     ],
     "react"
   ],
-  "ignore": [
-    "vendor"
-  ],
   "minified": true,
   "compact": true,
   "plugins": [

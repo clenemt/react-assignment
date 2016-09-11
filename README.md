@@ -16,7 +16,7 @@ npm run sync
 It will install dependencies, build the `dist/` folder and launch a small server at [localhost:3000](http://localhost:3000).
 
 # Techs
-Babel, ES6, Sass, Browsersync, React, ESLint and our good old friends HTML & CSS.
+Babel, ES6, Rollup, Sass, Browsersync, React, ESLint, Uglify and our good old friends HTML & CSS.
 
 # License
 Licensed under [MIT](LICENSE.md)
