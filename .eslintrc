@@ -6,7 +6,8 @@
     },
     "parserOptions": {
         "ecmaVersion": 6,
-        "jsx": true
+        "jsx": true,
+        "sourceType": "module"
     },
     "plugins": [
         "react"

@@ -1,6 +1,6 @@
-/* global React */
+import React from 'react';
 
-var NavBar = React.createClass({ // eslint-disable-line
+class NavBar extends React.Component {
 
     /**
      * The common render method.
@@ -17,10 +17,13 @@ var NavBar = React.createClass({ // eslint-disable-line
                 </div>
             </div>
         );
-    },
-
-    propTypes: {
-        title: React.PropTypes.string,
-        subtitle: React.PropTypes.string
     }
-});
+}
+
+NavBar.propTypes = {
+    title: React.PropTypes.string,
+    subtitle: React.PropTypes.string
+};
+
+export default NavBar;
+

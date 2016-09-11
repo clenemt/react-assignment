@@ -1,13 +1,13 @@
-/* global React, ProductItem */
+import React from 'react';
+import ProductItem from './ProductItem';
 
-var ProductList = React.createClass({ // eslint-disable-line
+class ProductList extends React.Component { // eslint-disable-line
 
-    /**
-     * The common initial state method.
-     */
-    getInitialState () {
-        return { items: this.props.products };
-    },
+    constructor (props) {
+        super(props);
+        this.handleStatusChange = this.handleStatusChange.bind(this);
+        this.state = { items: props.products };
+    }
 
     /**
      * Will update our items state array if something changed.
@@ -26,7 +26,7 @@ var ProductList = React.createClass({ // eslint-disable-line
             items[index].status = status;
             this.setState({ items: items });
         }
-    },
+    }
 
     /**
      * The common render method.
@@ -49,9 +49,11 @@ var ProductList = React.createClass({ // eslint-disable-line
                 {items}
             </ul>
         );
-    },
-
-    propTypes: {
-        products: React.PropTypes.array
     }
-});
+}
+
+ProductList.propTypes = {
+    products: React.PropTypes.array
+};
+
+export default ProductList;

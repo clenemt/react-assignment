@@ -1,6 +1,6 @@
-/* global React */
+import React from 'react';
 
-var ProductItem = React.createClass({ // eslint-disable-line
+class ProductItem extends React.Component {
 
     /**
      * When the checkbox is clicked will call `onStatusChange` from the parent.
@@ -10,14 +10,14 @@ var ProductItem = React.createClass({ // eslint-disable-line
             this.props.item.id,
             this.refs.checkbox.checked ? 'RESERVED' : 'NEW'
         );
-    },
+    }
 
     /**
      * Prevent selecting image.
      */
     preventSelection (evt) {
         evt.preventDefault();
-    },
+    }
 
     /**
      * The common render method.
@@ -34,7 +34,7 @@ var ProductItem = React.createClass({ // eslint-disable-line
                         className="product-input"
                         type="checkbox"
                         checked={item.status !== 'NEW'}
-                        onChange={this.handleChange}
+                        onChange={this.handleChange.bind(this)}
                         ref="checkbox"
                     />
                     <span className="custom-checkbox-indicator"></span>
@@ -50,10 +50,12 @@ var ProductItem = React.createClass({ // eslint-disable-line
                 </a>
             </li>
         );
-    },
-
-    propTypes: {
-        item: React.PropTypes.object,
-        onStatusChange: React.PropTypes.func
     }
-});
+}
+
+ProductItem.propTypes = {
+    item: React.PropTypes.object,
+    onStatusChange: React.PropTypes.func
+};
+
+export default ProductItem;

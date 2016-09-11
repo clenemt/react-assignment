@@ -1,6 +1,6 @@
-/* global React */
+import React from 'react';
 
-var CustomerInfo = React.createClass({ // eslint-disable-line
+class CustomerInfo extends React.Component {
 
     /**
      * The common render method.
@@ -40,11 +40,13 @@ var CustomerInfo = React.createClass({ // eslint-disable-line
                 </p>
             </div>
         );
-    },
-
-    propTypes: {
-        orderDate: React.PropTypes.string,
-        email: React.PropTypes.string,
-        tel: React.PropTypes.string
     }
-});
+}
+
+CustomerInfo.propTypes = {
+    orderDate: React.PropTypes.string,
+    email: React.PropTypes.string,
+    tel: React.PropTypes.string
+};
+
+export default CustomerInfo;

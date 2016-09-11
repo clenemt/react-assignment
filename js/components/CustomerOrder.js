@@ -1,6 +1,10 @@
-/* global React, NavBar, CustomerInfo, OrderInfo, ProductList */
+import React from 'react';
+import NavBar from './NavBar';
+import CustomerInfo from './CustomerInfo';
+import OrderInfo from './OrderInfo';
+import ProductList from './ProductList';
 
-var CustomerOrder = React.createClass({ // eslint-disable-line
+class CustomerOrder extends React.Component {
 
     /**
      * The common render method.
@@ -32,9 +36,11 @@ var CustomerOrder = React.createClass({ // eslint-disable-line
                 </div>
             </div>
         );
-    },
-
-    propTypes: {
-        order: React.PropTypes.object
     }
-});
+}
+
+CustomerOrder.propTypes = {
+    order: React.PropTypes.object
+};
+
+export default CustomerOrder;
